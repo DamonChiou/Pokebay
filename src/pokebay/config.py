@@ -5,6 +5,7 @@ class Settings(BaseSettings):
 
     database_url: str
     ebay_app_id: str
+    ebay_client_secret: str
     tcgplayer_public_key: str
     tcgplayer_private_key: str
     resend_api_key: str
