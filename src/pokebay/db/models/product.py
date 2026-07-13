@@ -25,7 +25,7 @@ class Product(Base):
     product_type: Mapped[str] = mapped_column(String(50))
     set_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
     tcg_market_price: Mapped[Decimal | None] = mapped_column(Numeric(10, 2), nullable=True)
-    tcg_product_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    tcg_product_id: Mapped[str | None] = mapped_column(String(100), nullable=True, unique=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     listings: Mapped[list["Listing"]] = relationship(back_populates="product")
