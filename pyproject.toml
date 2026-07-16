@@ -39,6 +39,7 @@ dev = [
 [project.scripts]
 pokebay-ingest = "pokebay.ingestion.runner:main"
 pokebay-match = "pokebay.matching.matcher:main"
+pokebay-score = "pokebay.scoring.deal_scorer:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pokebay"]
