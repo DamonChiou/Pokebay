@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PokeBay Deals</title>
+    <style>
+      body { font-family: sans-serif; margin: 2rem; }
+      table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+      th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+      th { background: #f2f2f2; }
+    </style>
+  </head>
+  <body>
+    <h1>PokeBay Deal Finder</h1>
+    <button id="search-btn">Find Deals</button>
+
+    <table id="deals-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Listing Price</th>
+          <th>Market Price</th>
+          <th>Discount</th>
+          <th>Listing</th>
+        </tr>
+      </thead>
+      <tbody id="deals-body"></tbody>
+    </table>
+
+    <script>
+      document.getElementById("search-btn").addEventListener("click", () => {
+        fetch("/deals")
+          .then((response) => response.json())
+          .then((deals) => {
+            const body = document.getElementById("deals-body");
+            body.innerHTML = "";
+
+            deals.forEach((deal) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                <td>${deal.product_name}</td>
+                <td>$${deal.listing_price}</td>
+                <td>$${deal.market_price}</td>
+                <td>${Math.round(deal.discount_pct * 100)}%</td>
+                <td><a href="${deal.listing_url}" target="_blank">View</a></td>
+              `;
+              body.appendChild(row);
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

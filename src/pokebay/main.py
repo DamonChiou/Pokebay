@@ -1,5 +1,7 @@
+from pathlib import Path
 from decimal import Decimal
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from pokebay.scoring.deal_scorer import find_deals
 
@@ -30,3 +32,7 @@ async def get_deals() -> list[DealOut]:
             )
         )
     return results
+
+
+STATIC_DIR = Path(__file__).parent / "static"
+app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
