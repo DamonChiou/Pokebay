@@ -8,8 +8,6 @@ class Settings(BaseSettings):
     ebay_client_secret: str
     tcgplayer_public_key: str
     tcgplayer_private_key: str
-    resend_api_key: str
-    alert_email_to: str
 
 
 settings = Settings() # type: ignore

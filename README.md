@@ -116,8 +116,6 @@ EBAY_APP_ID=your-ebay-app-id
 EBAY_CLIENT_SECRET=your-ebay-cert-id
 TCGPLAYER_PUBLIC_KEY=your-tcgplayer-public-key
 TCGPLAYER_PRIVATE_KEY=your-tcgplayer-private-key
-RESEND_API_KEY=your-resend-api-key
-ALERT_EMAIL_TO=your-email@example.com
 ```
 
 ---

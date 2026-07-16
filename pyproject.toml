@@ -22,7 +22,6 @@ dependencies = [
     "pydantic-settings>=2.2",
     "rapidfuzz>=3.9",
     "apscheduler>=3.10",
-    "resend>=2.3",
 ]
 
 [project.optional-dependencies]
